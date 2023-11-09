@@ -2,28 +2,21 @@ package in.dsa.sorting;
 
 public class InsertionSort {
 
-
 	public static void insertionSorting(int[] arr) {
 
 		int n = arr.length;
 		
-		for(int i = 0; i < n-1; i++) {
+		for(int i = 1; i < n; i++) {
 			
-			int min = arr[i];
-			int index = i;
-					
-			for(int j = i; j < n; j++) {
-				
-				if(arr[j] < min) {
-					min = arr[j];
-					index = j;
-				}
+			int temp = arr[i];
+			int j = i-1;
+			
+			while(j >= 0 && arr[j] > temp) {
+				arr[j+1] = arr[j];
+				j--;
 			}
 			
-			//swap::
-			int temp = min;
-			arr[index] = arr[i];
-			arr[i] = temp;
+			arr[j+1] = temp;
 			
 		}
 		
